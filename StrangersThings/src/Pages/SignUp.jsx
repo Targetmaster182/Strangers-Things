@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const COHORT_NAME='2302-acc-et-web-pt-a'
 const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
@@ -13,7 +13,6 @@ export default function SignUpPage({setToken}) {
     const navigate = useNavigate()
     async function submitForm(e) {
       e.preventDefault()
-      console.log ("test")
       if (password.length < 8) {
         setErrorMessage("Password is too short");
       } else {
@@ -37,12 +36,13 @@ export default function SignUpPage({setToken}) {
                       console.log(result)
                       localStorage.setItem('token', token);
                       setToken(token)
-                      navigate('/ProfilePage')
+                      
               } catch (err) {
                   setError(err.message);
               }
           }
           await signUp();
+          navigate('/')
           
       }
     }

@@ -36,7 +36,7 @@ export default function LoginPage({setToken}) {
               const { token } = result.data
               localStorage.setItem('token', token);
               setToken(token)
-              navigate('/ProfilePage')
+              navigate('/Profile')
             } else {
               setErrorMessage(result.error.message)
             } 
@@ -48,7 +48,7 @@ export default function LoginPage({setToken}) {
           setError(err.message);
         }          
     }
-      login()
+      await login()
     }
     
     return (
