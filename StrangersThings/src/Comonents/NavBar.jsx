@@ -9,31 +9,50 @@ export default function NavBar({token, setToken}) {
         navigate('/')
 
     }
+    if (!token) {
+        return(
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Login</Link>
+                    </li>
+                    <li>
+                        <Link to="/SignUp">Sign UP</Link>
+                    </li>
+                                    <li>
+                        <Link to="/Posts">Posts</Link>
+                    </li>
+                </ul>
+            </nav>
+        )
+
+    } else if (token) {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/">Login</Link>
-                </li>
-                
-                <li>
-                    <Link to="/Posts">Posts</Link>
-                </li>
-                
-                <li>
-                    <Link to="/SignUp">Sign UP</Link>
-                </li>
-                
-                <li>
-                    <Link to="/Profile"> Profile</Link>
-                </li>
+            <nav>
+                <ul>
 
-                <button onClick={() => handleClick(token, setToken)}>Logout</button>
-                
-                
-            </ul>
+                    
+                    <li>
+                        <Link to="/Posts">Posts</Link>
+                    </li>
+                    
+
+                    
+                    <li>
+                        <Link to="/Profile"> Profile</Link>
+                    </li>
+
+                    <li>
+                        <Link to="/CreatePost"> Create Post</Link>
+                    </li>
+
+                    <button onClick={() => handleClick(token, setToken)}>Logout</button>
+                    
+                    
+                </ul>
 
 
-        </nav>
-    )
+            </nav>
+        )
+    }
 }

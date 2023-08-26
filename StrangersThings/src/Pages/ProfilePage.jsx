@@ -5,6 +5,7 @@ const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
 export default function Profile({token}) {
     const [username, setUsername] = useState("")
+    const [error, setError] = useState(null)
 
     const myData = async () => {
 
@@ -20,7 +21,7 @@ export default function Profile({token}) {
           setUsername(result.data.username)
           return result
         } catch (err) {
-          console.error(err);
+          setError(err.message);
         }
       }
       useEffect(() => {

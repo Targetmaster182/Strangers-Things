@@ -1,19 +1,20 @@
-import { FetchPosts } from "../API"
+import { FetchPosts } from "../API/index"
 import { useState, useEffect } from "react";
 import PostCard from "../Comonents/PostCard";
-import NavBar from "../Comonents/NavBar";
 
 
-export default function AllPosts() {
+export default function AllPosts({token}) {
     const [posts, setPosts] = useState([])
-    useEffect(() => {
-        async function fetchData() {
-            const data = await FetchPosts()
+    
+        async function fetchData(token) {
+            const data = await FetchPosts(token)
             setPosts(data)
         }
-        fetchData()
+        useEffect(() => {
+            fetchData(token)
 
-    }, [])
+        }, [token])
+
     return (
         <div>            
             <section>
@@ -21,7 +22,9 @@ export default function AllPosts() {
                     posts.map((post) => (
                         <PostCard
                         key={post._id}
-                        post={post}    
+                        post={post}  
+                        token={token}
+                        FetchPosts={fetchData}  
                     
                         />
                     ))

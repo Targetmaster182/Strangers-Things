@@ -6,6 +6,8 @@ import NavBar from './Comonents/NavBar'
 import Login from '../src/Pages/Login'
 import SignUp from './Pages/SignUp'
 import ProfilePage from '../src/Pages/ProfilePage'
+import CreatePost from './Pages/CreatePost'
+
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token')) 
@@ -18,6 +20,7 @@ function App() {
         <Route path='Posts' element={<AllPosts/>}/>
         <Route path='SignUp' element={<SignUp/>}/>
         <Route path='Profile' element={<ProfilePage token={token} setToken={setToken}/>}/>
+        <Route path='CreatePost' element={<CreatePost token={token}/>}/>
 
 
       </Routes>

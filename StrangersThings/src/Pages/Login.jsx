@@ -10,7 +10,7 @@ export default function LoginPage({setToken}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
-    const [error, setError] = useState(null)
+    const [setError] = useState(null)
     
   
     const navigate = useNavigate()
@@ -37,6 +37,7 @@ export default function LoginPage({setToken}) {
               localStorage.setItem('token', token);
               setToken(token)
               navigate('/Profile')
+              
             } else {
               setErrorMessage(result.error.message)
             } 
