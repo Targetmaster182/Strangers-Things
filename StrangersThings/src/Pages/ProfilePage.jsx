@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link,useParams,useNavigate } from "react-router-dom";
+import '../Comonents/profile.css'
+
 
 const API_URL=`https://strangers-things.herokuapp.com/api/2302-ACC-ET-WEB-PT-A`
 
@@ -46,41 +48,56 @@ export default function Profile(){
       const filtered = messages.filter(message=> !message.fromUser.username.toLowerCase().includes(username.toLowerCase()))
       return filtered
   }
-  function Messages ({message}){
+  function MessagesReceived ({message}){
       
       return (
           
           <div>
-              <h2>Seller: {message.post.author.username}</h2>
+              <h2>From: {message.post.author.username}</h2>
               <h3>Content: {message.content}</h3>
               <h4>Post: {message.post.title}</h4>
           </div>
       )
       
   }
+
+  function MessagesSent ({message}){
+      
+    return (
+        
+        <div>
+            <h2>Sent By Me</h2>
+            <h3>Content: {message.content}</h3>
+            <h4>Post: {message.post.title}</h4>
+        </div>
+    )
+    
+}
   
  
   return (
 
-      <div>
+      <div className='profilediv'>
 
-        <div>
+        <div className='welcomediv'>
           <h1>welcome {username}</h1>
         </div>
-          <div>
-              <h1>INBOX</h1>
+        <div className='messagesdiv'>
+            <div className='inboxdiv'>
+                <h1 className='title'>INBOX</h1>
+                  {
+                    FilterMessageReceived(messages).map(message=>{
+                        return <MessagesReceived key={message._id} message={message}/>})
+                  }  
+                
+            </div>
+            <div className='sentdiv'>
+                <h1 className='title'>SENT</h1>  
                 {
-                  FilterMessageReceived(messages).map(message=>{
-                      return <Messages key={message._id} message={message}/>})
-                }  
-              
-          </div>
-          <div>
-              <h1>SENT</h1>  
-              {
-                  FilterMessageSent(messages).map(message=>{
-                      return <Messages key={message._id} message={message}/>})
-                } 
+                    FilterMessageSent(messages).map(message=>{
+                        return <MessagesSent key={message._id} message={message}/>})
+                  } 
+            </div>
           </div>
       </div>
   )

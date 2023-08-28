@@ -1,0 +1,65 @@
+.postsd {
+
+    box-shadow: 0 4px 2px -2px gray;
+    
+}
+
+.messageButton {
+    background-color:#154a80;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+    min-height:35px; 
+    min-width: 100px;
+}
+
+.messageButton:hover {
+    background-color:#002ead;
+    transition: 0.7s;
+    height: max-content;
+    cursor:pointer;
+    
+}
+
+.editButton {
+    background-color:#0f6830;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+    min-height:35px; 
+    min-width: 100px;
+}
+
+.editButton:hover {
+    background-color:#159845;
+    transition: 0.7s;
+    height: max-content;
+    cursor:pointer;
+    
+}
+
+.deleteButton {
+    background-color:#6c0c0c;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+    min-height:35px; 
+    min-width: 100px;
+}
+
+.deleteButton:hover {
+    background-color:#ba1414;
+    transition: 0.7s;
+    height: max-content;
+    cursor:pointer;
+    
+}
+
+.divpost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

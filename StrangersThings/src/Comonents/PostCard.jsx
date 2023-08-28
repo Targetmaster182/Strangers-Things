@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FetchPosts } from "../API";
 import { useNavigate } from "react-router-dom";
+import './allposts.css'
 
 
 const API_URL = `https://strangers-things.herokuapp.com/api/2302-ACC-ET-WEB-PT-A`
@@ -41,47 +42,56 @@ export default function PostCard({post, token, FetchPosts}) {
 
     if (!token ) {
         return (
-
+            <div className="postsd">
                 <div key={_id}>
-                    <h2>{title}</h2>
+                <h1>{title}</h1>
                     <p>{description}</p>
-                    <p>Price: {price}</p>
-                    <h2>Seller: {author.username}</h2>
-                    <p>Location: {location}</p>
+                    <h3>Price: {price}</h3>
+                    <h3>Seller: {author.username}</h3>
+                    <h3>Location: {location}</h3>
                 </div>
+            </div>
 
         )
     } else if (isAuthor && token) {
         return(
-            <div>
+            <div className="postsd">
                 <div key={_id}>
-                <h2>{title}</h2>
+                <h1>{title}</h1>
                 <p>{description}</p>
-                <p>Price: {price}</p>
-                <h2>Seller: {author.username}</h2>
-                <p>Location: {location}</p>
+                <h3>Price: {price}</h3>
+                <h3>Seller: {author.username}</h3>
+                <h3>Location: {location}</h3>
                 </div>
+                <br></br>
                 <div>
-                    <button onClick={() => editPost(post)}>EDIT</button>
-                    <br></br>
-                    <button onClick={() => deletePost(post._id) }>DELETE</button>
-                    
+                    <button className="editButton" onClick={() => editPost(post)}>EDIT</button>
+                                       
                 </div>
+                <br></br>
+                <div>
+                
+                    <button className="deleteButton" onClick={() => deletePost(post._id) }>DELETE</button>
+                </div>
+                <br></br>
+                <br></br>
             </div>
         )
 
     } else if (!isAuthor && token) { 
         return(
-            <div>
+            <div className="postsd">
                 <div key={_id}>
-                    <h2>{title}</h2>
+                    <h1>{title}</h1>
                     <p>{description}</p>
-                    <p>Price: {price}</p>
-                    <h2>Seller: {author.username}</h2>
-                    <p>Location: {location}</p>
+                    <h3>Price: {price}</h3>
+                    <h3>Seller: {author.username}</h3>
+                    <h3>Location: {location}</h3>
                 </div>
                 
-                <button onClick={() => sendMessage(post)}>SEND MESSAGE</button>
+                <button className="messageButton" onClick={() => sendMessage(post)}>SEND MESSAGE</button>
+                <br></br>
+                <br></br>
             </div>
         )
 

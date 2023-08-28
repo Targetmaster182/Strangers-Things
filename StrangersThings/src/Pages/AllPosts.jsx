@@ -1,6 +1,7 @@
 import { FetchPosts } from "../API/index"
 import { useState, useEffect } from "react";
 import PostCard from "../Comonents/PostCard";
+import '../Comonents/allposts.css'
 
 
 export default function AllPosts({token}) {
@@ -31,14 +32,16 @@ export default function AllPosts({token}) {
           }
 
     return (
-        <div>            
-            <section>
+        <div>   
+            <div className="divpost">
                 <h1>POSTS</h1>
                 <form onSubmit={handleSubmit}>
                     <label>Search</label>
                     <input onChange={handleSubmit} type="text"/>
                     
                 </form>
+            </div>         
+            <section>               
                 {
                     filteredPosts.map((post) => (
                         <PostCard

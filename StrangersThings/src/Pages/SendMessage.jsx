@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Route, Routes, Link, useParams, useNavigate } from "react-router-dom";
+import '../Comonents/sendmessage.css'
+
 
 const API_URL = `https://strangers-things.herokuapp.com/api/2302-ACC-ET-WEB-PT-A`
 
@@ -32,12 +34,14 @@ export default function MessageTo(){
           }
     }
     return (
-        <div>
-        <h2>Message</h2>
+      <div className="maindiv">
+        <div className="messagediv">
+        <h1>Message</h1>
         <form onSubmit={postMessage} >
 
             <label>
-                <div>Message: 
+                <div>
+                <label className='subtitle' htmlFor="username">MESSAGE: </label> 
                     <input 
                         value={messageTo} 
                         id="messageTo" onChange={(e)=>{ 
@@ -45,8 +49,9 @@ export default function MessageTo(){
                         }}/>
                 </div>
             </label>
-                <button>Submit</button>
+                <button className="submit">SEND</button>
         </form>
         </div>
+      </div>
     )
 }

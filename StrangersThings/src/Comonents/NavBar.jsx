@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import './NavBar.css'
 
 export default function NavBar({token, setToken}) {
     const navigate = useNavigate()
@@ -11,16 +12,16 @@ export default function NavBar({token, setToken}) {
     }
     if (!token) {
         return(
-            <nav>
+            <nav id="navbar">
                 <ul>
                     <li>
-                        <Link to="/">Login</Link>
+                        <Link to="/">LOGIN</Link>
                     </li>
                     <li>
-                        <Link to="/SignUp">Sign UP</Link>
+                        <Link to="/SignUp">SIGN UP</Link>
                     </li>
                                     <li>
-                        <Link to="/Posts">Posts</Link>
+                        <Link to="/Posts">POSTS</Link>
                     </li>
                 </ul>
             </nav>
@@ -28,25 +29,21 @@ export default function NavBar({token, setToken}) {
 
     } else if (token) {
     return (
-            <nav>
+            <nav id="navbar">
                 <ul>
 
                     
                     <li>
-                        <Link to="/Posts">Posts</Link>
-                    </li>
-                    
-
-                    
+                        <Link to="/Posts">POSTS</Link>
+                    </li>                    
                     <li>
-                        <Link to="/Profile"> Profile</Link>
+                        <Link to="/Profile"> PROFILE</Link>
                     </li>
-
                     <li>
-                        <Link to="/CreatePost"> Create Post</Link>
+                        <Link to="/CreatePost"> CREATE POST</Link>
                     </li>
 
-                    <button onClick={() => handleClick(token, setToken)}>Logout</button>
+                    <button className="logout" onClick={() => handleClick(token, setToken)}>LOGOUT</button>
                     
                     
                 </ul>

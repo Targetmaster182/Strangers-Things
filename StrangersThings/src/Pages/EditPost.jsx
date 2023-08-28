@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Route, Link, Routes  } from "react-router-dom";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-
+import '../Comonents/editpost.css'
 const API_URL = `https://strangers-things.herokuapp.com/api/2302-ACC-ET-WEB-PT-A`
 
 export default function edit_Post() {    
@@ -43,48 +43,55 @@ export default function edit_Post() {
     }
 
     return(
-        <div>
 
-        <form  onSubmit={handleSubmit}>
-            <label>
-                <div>title: 
-                    <input 
-                    value={title}  
-                    id="title"  onChange={(e)=>{ 
-                        setTitle(e.target.value) 
-                    }}/>
-                </div>
-            </label>
-            <label>
-                <div>Description: 
-                    <input 
-                    value={description}  
-                    id="description" onChange={(e)=>{ 
-                        setDescription(e.target.value) 
-                    }}/>
-                </div>
-            </label>
-            <label>
-                <div>Price: 
-                    <input 
-                    value={price}  
-                    id="price" onChange={(e)=>{ 
-                        setPrice(e.target.value) 
-                        
-                    }}/>
-                </div>
-            </label>
-            <label>
-                <div>Location: 
-                    <input 
-                        value={location}  
-                        id="location" onChange={(e)=>{ 
-                            setLocation(e.target.value) 
+        <div className="maindiv">
+            <div className="editdiv">
+
+            <form  onSubmit={handleSubmit}>
+                <label className="subtitle">TITLE: </label>  
+                        <input 
+                        value={title}  
+                        id="title"  onChange={(e)=>{ 
+                            setTitle(e.target.value) 
                         }}/>
-                </div>
-            </label>
-            <button>Submit</button>   
-        </form>
+                <br></br>
+                    
+                
+                <label className="subtitle">DESCRIPTION: </label>
+                     
+                        <input 
+                        value={description}  
+                        id="description" onChange={(e)=>{ 
+                            setDescription(e.target.value) 
+                        }}/>
+                <br></br>
+                    
+                
+                <label className="subtitle">PRICE: </label>
+                      
+                    <input 
+                        value={price}  
+                        id="price" onChange={(e)=>{ 
+                            setPrice(e.target.value) 
+                            
+                        }}/>
+                <br></br>
+                    
+                
+                <label className="subtitle">LOCATION:  </label>
+                      
+                        <input 
+                            value={location}  
+                            id="location" onChange={(e)=>{ 
+                                setLocation(e.target.value) 
+                            }}/>
+
+                        <br></br>
+                    
+                
+                <button className="submit">Submit</button>   
+            </form>
+            </div>
         </div>
     );
   

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../Comonents/SignUp.css';
 
 
 const API_URL=`https://strangers-things.herokuapp.com/api/2302-ACC-ET-WEB-PT-A`
@@ -47,33 +48,35 @@ export default function SignUpPage({setToken}) {
       }
     }
     return (
-      <div>
-        <h1>Sign Up</h1>
-        <form onSubmit={submitForm}>
-          <label htmlFor="username">Username: </label>
-          <input
-            value={username} 
-            type="username"
-            id="username"
-            onChange={(e) => {
-              setErrorMessage('');
-              setUsername(e.target.value)
-            }} 
-          />
-          <br></br>
-          <label htmlFor="password">Password: </label>
-          <input
-            value={password}
-            type="password"
-            id="password"
-            onChange={(e) => {
-              setErrorMessage('');
-              setPassword(e.target.value)
-            }}
-          />
-          <p>{errorMessage}</p>
-          <button type="submit">Sign Up</button>
-        </form>
+      <div className='maindiv'>
+        <div className='signupdiv'>
+          <h1>Sign Up</h1>
+          <form onSubmit={submitForm}>
+            <label className='subtitle' htmlFor="username">USERNAME: </label>
+            <input
+              value={username} 
+              type="username"
+              id="username"
+              onChange={(e) => {
+                setErrorMessage('');
+                setUsername(e.target.value)
+              }} 
+            />
+            <br></br>
+            <label className='subtitle' htmlFor="password">PASSWORD: </label>
+            <input
+              value={password}
+              type="password"
+              id="password"
+              onChange={(e) => {
+                setErrorMessage('');
+                setPassword(e.target.value)
+              }}
+            />
+            <p>{errorMessage}</p>
+            <button className='submit' type="submit">Sign Up</button>
+          </form>
+        </div>
       </div>
     )
   }

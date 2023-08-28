@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import '../Comonents/Login.css'
 
 
 
@@ -54,34 +55,36 @@ export default function LoginPage({setToken}) {
     }
     
     return (
-      <div>
-        <h1>Log In</h1>
-        <form onSubmit={submitForm}>
-          <label htmlFor="username">Username: </label>
-          <input
-            value={username} 
-            type="username"
-            id="username"
-            onChange={(e) => {
-              setErrorMessage('');
-              setUsername(e.target.value)
-            }} 
-          />
-          <br></br>
-          <label htmlFor="password">Password: </label>
-          <input
-            value={password}
-            type="password"
-            id="password"
-            onChange={(e) => {
-              setErrorMessage('');
-              setPassword(e.target.value)
-            }}
-          />
-          <p>{errorMessage}</p>
-          <button type="submit">Log In</button>
-        </form>
-        <Link to="/SignUp"> Don't have an account? Sign UP</Link>
+      <div className='maindiv'>
+        <div className='logindiv'>
+          <h1>Log In</h1>
+          <form onSubmit={submitForm}>
+            <label className='subtitle' htmlFor="username">USERNAME: </label>
+            <input
+              value={username} 
+              type="username"
+              id="username"
+              onChange={(e) => {
+                setErrorMessage('');
+                setUsername(e.target.value)
+              }} 
+            />
+            <br></br>
+            <label className='subtitle'htmlFor="password">PASSWOR: </label>
+            <input
+              value={password}
+              type="password"
+              id="password"
+              onChange={(e) => {
+                setErrorMessage('');
+                setPassword(e.target.value)
+              }}
+            />
+            <p>{errorMessage}</p>
+            <button className='submit' type="submit">Log In</button>
+          </form>
+          <Link className='link' to="/SignUp"> Don't have an account? Sign UP</Link>
+        </div>
       </div>
     )
   }

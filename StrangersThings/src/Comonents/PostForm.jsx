@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createPost } from '../API/index.js'
+import './CreatePost.css'
 
 export default function PostForm({token}) {
     const [title, setTitle] = useState("")
@@ -28,41 +29,49 @@ export default function PostForm({token}) {
     }
     
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Title: </label>
-            <input
-                type="text"
-                id="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
-            <br></br>
-            <label htmlFor="description">Description: </label>
-            <textarea
-                type="text"
-                id="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-            />
-            <br></br>
-            <label htmlFor="price">Price: </label>
-            <input
-                type="text"
-                id="price"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-            />
-            <br></br>
-            <label htmlFor="location">Location: </label>
-            <input
-                type="text"
-                id="location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-            />
+        <div className='maindiv'>
+            <div className='postdiv'>
+                <form onSubmit={handleSubmit}>
+                    <label className='subtitle' htmlFor="title">TITLE: </label>
+                    <input
+                        className='postinput'
+                        type="text"
+                        id="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <br></br>
+                    <label className='subtitle' htmlFor="description">DESCRIPTION: </label>
+                    <textarea
+                        type="text"
+                        id="description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                    <br></br>
+                    <label className='subtitle' htmlFor="price">PRICE: </label>
+                    <input
+                        className='postinput'
+                        type="text"
+                        id="price"
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                    />
+                    <br></br>
+                    <label className='subtitle' htmlFor="location">LOCATION: </label>
+                    <input
+                        className='postinput'
+                        type="text"
+                        id="location"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                    />
+                    <br></br>
 
 
-            <button className="submit">Submit</button>
-        </form>
+                    <button className="submit">SUBMIT</button>
+                </form>
+            </div>
+        </div>
     )
 }

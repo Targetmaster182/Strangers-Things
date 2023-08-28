@@ -1,0 +1,48 @@
+
+.welcomediv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.messagesdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.inboxdiv {
+    margin: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align:center;    
+    border-radius: 12px;  
+    background: #1f1f1f;
+    box-shadow: 5px 5px 10px rgba(182, 179, 179, 0.199);
+
+}
+
+.sentdiv {
+    margin: 20px;
+    padding: 30px;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    text-align:center;    
+    border-radius: 12px;  
+    background: #1f1f1f;
+    box-shadow: 5px 5px 10px rgba(182, 179, 179, 0.199);
+
+}
+
+.title {
+
+    border-radius: 12px;  
+    background: #3b3a3ad4;
+    box-shadow: 5px 5px 10px rgba(182, 179, 179, 0.423);
+
+
+}

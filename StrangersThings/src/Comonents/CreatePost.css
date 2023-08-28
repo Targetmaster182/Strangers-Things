@@ -1,0 +1,32 @@
+.maindiv {
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    
+    
+ 
+}
+
+.postdiv {
+    display: flex;
+    flex-direction: column;
+    align-self:center;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 350px;
+    border-radius: 12px;  
+    background: #1f1f1f;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
+
+}
+
+.postinput {
+    border: none;
+    border-bottom: solid rgb(143, 143, 143) 1px;  
+    margin-bottom: 30px;  
+    background: none;
+    color: rgba(255, 255, 255, 0.555);  
+    height: 35px;
+    width: 300px;
+  }
