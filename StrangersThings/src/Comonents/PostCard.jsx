@@ -8,7 +8,8 @@ const API_URL = `https://strangers-things.herokuapp.com/api/2302-ACC-ET-WEB-PT-A
 export default function PostCard({post, token, FetchPosts}) {
     const {_id, title, description, price, author, location, isAuthor} = post;
     const [error, seterror] = useState("null")
-    let data = sessionStorage.getItem("token");
+    let data = sessionStorage.getItem("token")
+    const navigate = useNavigate()
 
     async function deletePost(id){
         
@@ -31,7 +32,11 @@ export default function PostCard({post, token, FetchPosts}) {
       }
 
       function editPost(post){
-        navigate(`/edit_Post/${post._id}`,{state:{post}});
+        navigate(`/EditPost/${post._id}`,{state:{post}});
+      }
+
+      function sendMessage(post){
+        navigate(`/SendMessage/${post._id}`);
       }
 
     if (!token ) {
@@ -76,7 +81,7 @@ export default function PostCard({post, token, FetchPosts}) {
                     <p>Location: {location}</p>
                 </div>
                 
-                <button>SEND MESSAGE</button>
+                <button onClick={() => sendMessage(post)}>SEND MESSAGE</button>
             </div>
         )
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import PostForm from '../Comonents/PostForm'
-import { createPost } from '../API/index'
+
 
 
 

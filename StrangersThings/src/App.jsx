@@ -7,6 +7,8 @@ import Login from '../src/Pages/Login'
 import SignUp from './Pages/SignUp'
 import ProfilePage from '../src/Pages/ProfilePage'
 import CreatePost from './Pages/CreatePost'
+import EditPost from '../src/Pages/EditPost'
+import SendMessage from '../src/Pages/SendMessage'
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path='SignUp' element={<SignUp/>}/>
         <Route path='Profile' element={<ProfilePage token={token} setToken={setToken}/>}/>
         <Route path='CreatePost' element={<CreatePost token={token}/>}/>
+        <Route path='/EditPost/:id' element={<EditPost token={token} setToken={setToken}/>}/>
+        <Route path='/SendMessage/:id' element={<SendMessage token={token} setToken={setToken}/>}/>
 
 
       </Routes>

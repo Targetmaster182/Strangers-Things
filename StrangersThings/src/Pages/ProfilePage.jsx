@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link,useParams,useNavigate } from "react-router-dom";
 
+const API_URL=`https://strangers-things.herokuapp.com/api/2302-ACC-ET-WEB-PT-A`
+
 export default function Profile(){
   
-  let data = sessionStorage.getItem("token");
+  let token = sessionStorage.getItem("token");
   const [messages, setMessages] = useState([])
-  const [error, seterror] = useState("null")
-  const COHORT_NAME='2302-acc-et-web-pt-a'
-  const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
+  const [error, seterror] = useState("null")  
   let username = sessionStorage.getItem("username");
 
-  async function getMessage(){
+  async function fetchMessage(){
       try {
           const response = await fetch(`${API_URL}/users/me`, {
             method: "GET",
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${data}`
+              'Authorization': `Bearer ${token}`
             },
             
           });
@@ -32,17 +32,17 @@ export default function Profile(){
   
 
   useEffect(() => {
-      getMessage();
+      fetchMessage();
 
   }, [])
   
   
   
-  function filterMessageFromM(messages){
+  function FilterMessageSent(messages){
       const filtered = messages.filter(message=> message.fromUser.username.toLowerCase().includes(username.toLowerCase()))
       return filtered
   }
-  function filterMessageToM(messages){
+  function FilterMessageReceived(messages){
       const filtered = messages.filter(message=> !message.fromUser.username.toLowerCase().includes(username.toLowerCase()))
       return filtered
   }
@@ -50,7 +50,7 @@ export default function Profile(){
       
       return (
           
-          <div className="message-box">
+          <div>
               <h2>Seller: {message.post.author.username}</h2>
               <h3>Content: {message.content}</h3>
               <h4>Post: {message.post.title}</h4>
@@ -68,17 +68,17 @@ export default function Profile(){
           <h1>welcome {username}</h1>
         </div>
           <div>
-              <h1>Message To Me</h1>
+              <h1>INBOX</h1>
                 {
-                  filterMessageToM(messages).map(message=>{
+                  FilterMessageReceived(messages).map(message=>{
                       return <Messages key={message._id} message={message}/>})
                 }  
               
           </div>
           <div>
-              <h1>Message From Me</h1>  
+              <h1>SENT</h1>  
               {
-                  filterMessageFromM(messages).map(message=>{
+                  FilterMessageSent(messages).map(message=>{
                       return <Messages key={message._id} message={message}/>})
                 } 
           </div>

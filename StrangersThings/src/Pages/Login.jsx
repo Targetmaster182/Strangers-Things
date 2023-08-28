@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 
-const COHORT_NAME='2302-acc-et-web-pt-a'
-const API_URL=`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
+
+const API_URL=`https://strangers-things.herokuapp.com/api/2302-ACC-ET-WEB-PT-A`
 
 export default function LoginPage({setToken}) {
     const [username, setUsername] = useState('')

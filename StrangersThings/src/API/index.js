@@ -34,20 +34,3 @@ export async function createPost(NewPost, token) {
     }
 }
 
-export async function editPost(editedPost, _id, token) {
-    try {
-      const response = await fetch(`${API_URL}/${_id}`, {
-        method: "PATCH",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(editedPost)
-      });
-      const result = await response.json();
-      console.log(result);
-      return result
-    } catch (err) {
-      console.error(err);
-    }
-}

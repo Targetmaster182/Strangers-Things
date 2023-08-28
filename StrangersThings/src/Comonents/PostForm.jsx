@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createPost } from '../API/index.js'
 
-export default function PostForm({token, postAuthor}) {
+export default function PostForm({token}) {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
