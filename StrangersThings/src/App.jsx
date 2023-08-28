@@ -17,7 +17,7 @@ function App() {
       <NavBar token={token} setToken={setToken}/>
       <Routes>
         <Route path='/' element={<Login setToken={setToken}/>} />
-        <Route path='Posts' element={<AllPosts/>}/>
+        <Route path='Posts' element={<AllPosts token={token} setToken={setToken}/>}/>
         <Route path='SignUp' element={<SignUp/>}/>
         <Route path='Profile' element={<ProfilePage token={token} setToken={setToken}/>}/>
         <Route path='CreatePost' element={<CreatePost token={token}/>}/>

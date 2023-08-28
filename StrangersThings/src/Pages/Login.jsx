@@ -34,7 +34,8 @@ export default function LoginPage({setToken}) {
             const result = await response.json();
             if (result.success) {
               const { token } = result.data
-              localStorage.setItem('token', token);
+              sessionStorage.setItem('token', token);
+              sessionStorage.setItem("username",username );
               setToken(token)
               navigate('/Profile')
               
@@ -46,7 +47,7 @@ export default function LoginPage({setToken}) {
             console.log(result)
             
         } catch (err) {
-          setError(err.message);
+          setError(err.message)
         }          
     }
       await login()
